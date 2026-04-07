@@ -130,33 +130,23 @@ async function main() {
         }
     }
 
-    report += `\n---\n*Automated Agent Payload generated via Nansen CLI.*\n*Total API Calls Executed: ${apiCalls}*`;
+    report += `\n---\n*Automated Agent Payload generated via Nansen CLI.*\n*Total API Calls Executed: ${apiCalls}*\n`;
+    
+    // BONUS INCORPORATION: Direct hand-off to the 'nansen-trading' skill
+    console.log(`\n${colors.magenta}📦 Formatting ClawHub 'nansen-trading' Action Plan...${colors.reset}`);
+    
+    report += `\n## ⚡ ClawHub Agent Action Plan (nansen-trading Integration)\n`;
+    report += `> **System Prompt to OpenClaw Agent:** Load the official \`nansen-trading\` skill from ClawHub. Ensure \`NANSEN_WALLET_PASSWORD\` is sourced securely. For the trending tokens flagged on the **Base** network above, execute the following workflow:\n`;
+    report += `> 1. Use the CLI to request a swap quote to buy $50 USDC worth of the flagged Base token.\n`;
+    report += `> 2. Present the swap quote ID and estimated slippage.\n`;
+    report += `> 3. Await my final confirmation to execute the DEX swap onchain.\n`;
+
     fs.writeFileSync('agent_alpha_report.md', report);
     
-    console.log(`\n${colors.magenta}📦 Compiling ClawHub AI Agent Skill...${colors.reset}`);
-    const skillMd = `# Nansen Autonomous Alpha Node
-
-## Description
-This skill transforms the Nansen CLI into an automated cross-chain signal engine. It natively integrates with OpenClaw agents to scan Ethereum, Arbitrum, and Base for Smart Money inflows, profile top accumulators, and extract portfolio anomalies.
-
-## Requirements
-- Nansen CLI (\`npm install -g nansen-cli\`)
-- Valid Nansen Premium API Key
-
-## Autonomous Execution
-\`\`\`bash
-node index.js
-\`\`\`
-
-## ClawHub Agent Integration
-This script outputs structured Markdown (\`agent_alpha_report.md\`) designed to be ingested directly into an AI Agent's context window. It acts as a passive cron-job feed, supplying your trading agents with verified onchain intelligence without requiring manual CLI prompts.
-`;
-    fs.writeFileSync('SKILL.md', skillMd);
-    
     console.log(`\n${colors.green}${colors.bold}✅ Execution complete!${colors.reset}`);
-    console.log(`📊 Total API calls executed: ${apiCalls} (Meets the 10 API call requirement easily)`);
+    console.log(`📊 Total API calls executed: ${apiCalls}`);
     console.log(`📄 Saved analysis to 'agent_alpha_report.md'`);
-    console.log(`✨ BONUS: ClawHub 'SKILL.md' successfully compiled!`);
+    console.log(`✨ BONUS: 'nansen-trading' OpenClaw Agent Action Plan incorporated!`);
 }
 
 main();

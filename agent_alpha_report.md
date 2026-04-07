@@ -6,10 +6,10 @@
 ### 🐋 Top Accumulator: `0x07a2e516993972ecd674058e173f02694617e233`
 **Cross-Referenced 'Shadow Bags':**
 - *Portfolio data obscured or currently empty on this chain.*
-## 🪙 [ETHEREUM] Token: FORTH
+## 🪙 [ETHEREUM] Token: MAV
 - **Smart Money Flow:** $0
 
-### 🐋 Top Accumulator: `0x4a5bb1c9347a0d4f7e06a29239162f03647d9232`
+### 🐋 Top Accumulator: `0xff4e09583ab03410b1f2fac3f2242ef7d1ec6cc3`
 **Cross-Referenced 'Shadow Bags':**
 - *Portfolio data obscured or currently empty on this chain.*
 ## 🪙 [ARBITRUM] Token: XAI
@@ -40,3 +40,9 @@
 ---
 *Automated Agent Payload generated via Nansen CLI.*
 *Total API Calls Executed: 15*
+
+## ⚡ ClawHub Agent Action Plan (nansen-trading Integration)
+> **System Prompt to OpenClaw Agent:** Load the official `nansen-trading` skill from ClawHub. Ensure `NANSEN_WALLET_PASSWORD` is sourced securely. For the trending tokens flagged on the **Base** network above, execute the following workflow:
+> 1. Use the CLI to request a swap quote to buy $50 USDC worth of the flagged Base token.
+> 2. Present the swap quote ID and estimated slippage.
+> 3. Await my final confirmation to execute the DEX swap onchain.
